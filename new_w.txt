@@ -1,5 +1,7 @@
 5.602535,7.242404,-10.000000
 8.902481284, 5.395205, -30.00jhfjdhf #This is a line i ADDED FOR LEARNING GIT 
+Adding another line for learning GIT 
+Testing the Staging environment
 5.602529,7.240385,-10.000000 
 5.602524,7.238366,-10.000000 
 5.602518,7.236347,-10.000000 
