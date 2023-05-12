@@ -1,0 +1,164 @@
+format long
+
+%xlimit = [3 13];
+%ylimit = [2  8];
+%xbox = xlimit([1 1 2 2 1]);
+%ybox = ylimit([1 2 2 1 1]);
+%mapshow(xbox,ybox,'DisplayType','polygon','LineStyle','none')
+
+%x = [0 6  4  8 8 10 14 10 14 NaN 4 4 6 9 15];
+%y = [4 6 10 11 7  6 10 10  6 NaN 0 3 4 3  6];
+%mapshow(x,y,'Marker','+')
+
+%[xi,yi] = polyxpoly(x,y,xbox,ybox);
+%mapshow(xi,yi,'DisplayType','point','Marker','o')
+
+%value = {};
+%value2 = {};
+%value{end+1} = 2
+%value(1)
+%value2{end} = 3
+
+% % clear all;
+% % 
+% % format long
+% % ray_count = 360; %number of rays from initial receiver; gets divided equally around
+% % reflection_ray_count = ray_count/2; %scattered ray count from 
+% % radian_tick = (2*pi)/ray_count; %degree between each ray
+% % 
+% % freq = 2.4;
+% % min_acceptable_power = -30;
+% % transceiver_power = 50;
+% % 
+% % refractive_index_air = 1.0; %used in fresnal equations later
+% % %snells law n1 sin(theatai) = n2 sin(theatat)
+% % 
+% % transceiver_loc = [51,51]; %x,y
+% % receiver_loc = [12,25];
+% % primary_rays = {};
+% % for count = 1:1:ray_count
+% %     %ID,Initial_Power,Initial_Point,Slope
+% %     ray_holder = ray(count,transceiver_power,transceiver_loc(1),transceiver_loc(2),count,0);
+% %     ray_holder.count = 0;
+% %     ray_holder.ray_angle = count*radian_tick;
+% %     if count == 225
+% %         ray_holder.ray_angle
+% %     end
+% %     ray_holder.parent_ray = 0; % 0 means no parent
+% %     ray_holder.depth = 1;
+% %     if count == ray_count
+% %         ray_holder.adjacent_rays = [ray_holder.adjacent_rays count-1];
+% %         ray_holder.adjacent_rays = [ray_holder.adjacent_rays 1];
+% %     elseif count == 1
+% %         ray_holder.adjacent_rays = [ray_holder.adjacent_rays ray_count];
+% %         ray_holder.adjacent_rays = [ray_holder.adjacent_rays count+1];
+% %     else
+% %         ray_holder.adjacent_rays = [ray_holder.adjacent_rays count-1];
+% %         ray_holder.adjacent_rays = [ray_holder.adjacent_rays count+1];
+% %     end
+% %     ray_holder;
+% %     primary_rays = [primary_rays, ray_holder];
+% % end
+% % size_of_primary_original = size(primary_rays)
+% % primary_rays2 = ray_updater2(primary_rays,radian_tick,transceiver_loc,transceiver_power);
+% % primary_rays2(1)
+% % primary_rays2(end)
+x1 = -5;
+x2 = 50;
+y1 = 50;
+y2 = 50;
+x1b = 50;
+x2b = 50;
+y1b = 50;
+y2b = -5;
+  
+x3 = 50;
+x4 = -5;
+y3 = 50;
+y4 = -5;
+%Test if corners meet
+[meetx meety] = polyxpoly([x1 x2],[y1 y2],[x3 x4],[y3 y4])
+ray_angle = 3.9270;
+%3.926990816987241
+class(ray_angle)
+% % % test_value2 = ray_angle
+ray_angle3 = 3.92699;
+% % % 
+max_length = 100;
+xray = 51+(max_length*cos(ray_angle))
+yray = 51+(max_length*sin(ray_angle))
+% Test if top edge is hit  
+[meetx2 meety2] = polyxpoly([x1 x2],[y1 y2],[x3 xray],[y3 yray])
+% % %  
+ray_count = 360; %number of rays from initial receiver; gets divided equally around
+reflection_ray_count = ray_count/2; %scattered ray count from 
+radian_tick = (2*pi)/ray_count; %degree between each ray
+% % %  
+ray_angle2 = 225 * radian_tick;
+xray2 = 51+(max_length*cos(ray_angle2))
+yray2 = 51+(max_length*sin(ray_angle2))
+% Test if ray hit first top edge with higher accuracy
+[meetx3 meety3] = polyxpoly([x1 x2],[y1 y2],[x3 xray2],[y3 yray2])
+[meetx4 meety4] = polyxpoly([x1b x2b], [y1b y2b], [x3 xray2], [y3 yray2])
+[meetx5 meety5] = polyxpoly([x1b x2b], [y1b y2b], [x3 xray], [y3 yray])
+%format long
+%test_Value = double(2*pi/360);
+%%degreeVal = double(180);
+%piVal = double(pi);
+%degrees = double(225);
+%test_Value2 = double(degrees * piVal / degreeVal);
+%test_value = pi/180
+%test_value2 = 225*pi/180
+%test_Value3 = double(1.12345)
+% count = 4;
+% ray_holder = ray(1,1,1,1,1,0);
+% ray_return_example = {}
+% ray_return_example = [ray_return_example ray_holder];
+% ray_holder = ray(2,1,1,1,1,0);
+% ray_return_example = [ray_return_example ray_holder];
+% ray_holder = ray(3,1,1,1,1,0);
+% ray_return_example = [ray_return_example ray_holder];
+% ray_holder = ray(4,1,1,1,1,0);
+% ray_return_example = [ray_return_example ray_holder];
+% ray_holder = ray(5,1,1,1,1,0);
+% ray_return_example = [ray_return_example ray_holder];
+% ray_holder = ray(6,1,1,1,1,0);
+% ray_return_example = [ray_return_example ray_holder];
+% ray_return_example(1)
+% ray_return_example(2)
+% ray_return_example(3)
+% ray_return_example(4)
+% ray_return_example(5)
+% ray_return_example(:,count:end) = []
+% ray_return_example(1)
+% ray_return_example(2)
+% ray_return_example(3)
+% ray_return_example(4)
+% %ray_return_example{
+% steps = 5;
+%new_rays_list{1,(size(ray_return_example,2)*steps)+size(ray_return_example,2)} = {}
+
+%size(ray_return_example)
+%size(ray_return_example,1)
+%size(ray_return_example,2)
+
+%ray_holder.adjacent_rays = [0 0]
+%ray_holder.adjacent_rays = []
+
+%testsize{1,10}=[]
+%%testsize{end+1} = 50
+%testsize = testsize(1:5)
+
+%value1 = 1;
+%zerosize = size(testsize,2)
+%testsize{size(testsize,2)+1} = value1;
+%first_size = size(testsize,2)
+%testsize{size(testsize,2)+1} = 2;
+%second_size = size(testsize,2)
+%testsize{size(testsize,2)+1} = 3;
+%thirdsize = size(testsize,2)
+%testnum = size(testsize,1)
+%testnum2 = size(testsize,2)
+%testcopy = testsize
+
+%checkme = testsize(size(testsize,2)-1)

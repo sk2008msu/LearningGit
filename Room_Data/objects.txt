@@ -1,0 +1,2 @@
+1 concrete -10 -5
+2 metal -10 -1
