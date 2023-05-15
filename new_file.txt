@@ -3,3 +3,5 @@ This is a new file
 
 This is not a new file.
 
+
+This can't be a new file
